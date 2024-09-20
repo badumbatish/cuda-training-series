@@ -1,13 +1,13 @@
+// #include <__clang_cuda_builtin_vars.h>
 #include <stdio.h>
 
-__global__ void hello(){
+__global__ void hello() {
 
-  printf("Hello from block: %u, thread: %u\n", FIXME);
+  printf("Hello from block: %u, thread: %u\n", blockIdx.x, threadIdx.x);
 }
 
-int main(){
+int main() {
 
-  hello<<<FIXME>>>();
+  hello<<<1, 1>>>();
   cudaDeviceSynchronize();
 }
-
